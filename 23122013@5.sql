@@ -24,7 +24,14 @@ where gv.mabm = bm.mabm and bm.mabm = 'HTTT'
 
 --Q38--
 -- Tên giáo viên lớn tuổi nhất của bộ môn hệ thống thông tin
-
+select gv.hoten
+from giaovien gv, bomon bm
+where gv.mabm = bm.mabm and bm.tenbm = N'Hệ thống thông tin' 
+and year(gv.ngsinh) = ( -- giáo viên lớn tuổi nhất của bm hệ thống thông tin
+select min(year(gv1.ngsinh))
+from giaovien gv1, bomon bm1
+where gv1.mabm = bm1.mabm and bm1.tenbm = N'Hệ thống thông tin'
+) 
 
 --Q39--
 select GV.HOTEN, GV.NGSINH
