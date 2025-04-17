@@ -1,5 +1,30 @@
-﻿use QLGV
+use QLGV
 go
+
+--Q35-- 
+-- Mức lương cao nhất của các giảng viên
+select max(gv.luong) LuongGVCaoNhat
+from giaovien gv
+
+--Q36--
+-- Những giáo viên có lương lớn nhất
+select gv.hoten, gv.luong
+from giaovien gv
+where gv.luong = 
+( -- mức lương cao nhất của các giảng viên
+select max(gv.luong) LuongGVCaoNhat
+from giaovien gv
+)
+
+--Q37--
+-- Lương cao nhất trong bộ môn HTTT
+select max(gv.luong) LuongGVCaoNhatHTTT
+from giaovien gv, bomon bm
+where gv.mabm = bm.mabm and bm.mabm = 'HTTT'
+
+--Q38--
+-- Tên giáo viên lớn tuổi nhất của bộ môn hệ thống thông tin
+
 
 --Q39--
 select GV.HOTEN, GV.NGSINH
